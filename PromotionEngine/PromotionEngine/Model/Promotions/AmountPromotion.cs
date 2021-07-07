@@ -35,9 +35,19 @@ namespace PromotionEngine.Model.Promotions
             this.Discount = discount;
         }
 
+        /// <summary>
+        /// Calculate the discount for the product items inside the cart
+        /// </summary>
+        /// <param name="cart">The cart which contains the added products </param>
+        /// <returns>A decimalvalue, representing the discount after applying the promotion</returns>
         public decimal CalculateDiscount(Cart cart)
         {
-            throw new NotImplementedException();
+            int amount = 0;
+            cart.CartItems.TryGetValue(Product, out amount);
+            if (amount >= this.Amount)
+                return (amount * Product.Unit_price) - (Math.Floor((decimal)(amount / this.Amount)) * this.Discount + (amount % this.Amount) * Product.Unit_price);
+            else
+                return 0;
         }
     }
 }
