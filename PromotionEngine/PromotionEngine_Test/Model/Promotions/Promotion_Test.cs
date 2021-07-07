@@ -8,6 +8,9 @@ namespace PromotionEngine_Test.Model.Promotions
     [TestClass]
     public class Promotion_Test
     {
+        /// <summary>
+        /// Create an old promotion and verify that it had expired
+        /// </summary>
         [TestMethod]
         public void Promotion_Has_Expired()
         {
@@ -16,6 +19,9 @@ namespace PromotionEngine_Test.Model.Promotions
             Assert.IsFalse(promotion.PromotionValid());
         }
 
+        /// <summary>
+        /// Create an new promotion and verify that it is valid
+        /// </summary>
         [TestMethod]
         public void Promotion_Is_Active()
         {

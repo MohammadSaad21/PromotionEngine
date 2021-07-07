@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PromotionEngine.Model.Promotions
 {
-    public class AmountPromotion : Promotion
+    public class AmountPromotion : Promotion, IPromotion
     {
         /// <summary>
         /// The required amount of the product item for the promotion to be applied
@@ -33,6 +33,11 @@ namespace PromotionEngine.Model.Promotions
             this.Product = product;
             this.Amount = amount;
             this.Discount = discount;
+        }
+
+        public decimal CalculateDiscount(Cart cart)
+        {
+            throw new NotImplementedException();
         }
     }
 }

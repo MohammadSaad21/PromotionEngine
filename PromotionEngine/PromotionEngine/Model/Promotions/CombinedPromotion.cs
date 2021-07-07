@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PromotionEngine.Model.Promotions
 {
-    public class CombinedPromotion : Promotion
+    public class CombinedPromotion : Promotion, IPromotion
     {
         /// <summary>
         /// The list of product items to be used with the promotion
@@ -28,6 +28,11 @@ namespace PromotionEngine.Model.Promotions
         {
             this.CombintedItems = combintedItems;
             this.Discount = discount;
+        }
+
+        public decimal CalculateDiscount(Cart cart)
+        {
+            throw new NotImplementedException();
         }
     }
 }

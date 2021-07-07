@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PromotionEngine.Model.Promotions
 {
-    class PercentagePromotion : Promotion
+    class PercentagePromotion : Promotion, IPromotion
     {
         /// <summary>
         /// The percentage from 0-100 % to be applied for the product
@@ -27,6 +27,11 @@ namespace PromotionEngine.Model.Promotions
         {
             this.Product = product;
             this.Percentage = percentage;
+        }
+
+        public decimal CalculateDiscount(Cart cart)
+        {
+            throw new NotImplementedException();
         }
     }
 }
