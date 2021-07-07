@@ -30,9 +30,46 @@ namespace PromotionEngine.Model.Promotions
             this.Discount = discount;
         }
 
+        /// <summary>
+        /// Calculate the discount for the product items inside the cart
+        /// </summary>
+        /// <param name="cart">The cart which contains the added products </param>
+        /// <returns>A decimalvalue, representing the discount after applying the promotion</returns>
         public decimal CalculateDiscount(Cart cart)
         {
-            throw new NotImplementedException();
+            decimal discount = 0;
+            decimal originalPrice = 0;
+            int commonAmount = GetCommonAmount(cart);
+            discount = GetCommonAmount(cart) * this.Discount;
+            foreach (Product product in CombintedItems)
+            {
+                int amount;
+                cart.CartItems.TryGetValue(product, out amount);
+                int leftAmount = amount - commonAmount;
+
+                discount += leftAmount * product.Unit_price;
+                originalPrice += amount * product.Unit_price;
+            }
+            return originalPrice - discount;
+        }
+
+        /// <summary>
+        /// Calculate the common amount between the products in the promotion list
+        /// </summary>
+        /// <returns>Amount common for the products inside the promotion list</returns>
+        private int GetCommonAmount(Cart cart)
+        {
+            int commonAmount = 0;
+            for (int i = 0; i < CombintedItems.Count; i++)
+            {
+                int amount;
+                cart.CartItems.TryGetValue(CombintedItems[i], out amount);
+                if (amount == 0)
+                    return 0;
+                if (amount < commonAmount || commonAmount == 0)
+                    commonAmount = amount;
+            }
+            return commonAmount;
         }
     }
 }
