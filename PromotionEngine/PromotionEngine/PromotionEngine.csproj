@@ -47,6 +47,7 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Promotions\AmountPromotion.cs" />
     <Compile Include="Model\Promotions\CombinedPromotion.cs" />
+    <Compile Include="Model\Promotions\IPromotion.cs" />
     <Compile Include="Model\Promotions\PercentagePromotion.cs" />
     <Compile Include="Model\Promotions\Promotion.cs" />
     <Compile Include="Program.cs" />
