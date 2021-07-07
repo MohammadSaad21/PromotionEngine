@@ -38,5 +38,13 @@ namespace PromotionEngine.Model
             else
                 CartItems.Add(product, amount);
         }
+
+        /// <summary>
+        /// Get the total items in the cart.
+        /// </summary>
+        public int GetTotalCount()
+        {
+            return CartItems.Count;
+        }
     }
 }
