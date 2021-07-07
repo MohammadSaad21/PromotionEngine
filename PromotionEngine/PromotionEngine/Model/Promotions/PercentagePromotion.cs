@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PromotionEngine.Model.Promotions
 {
-    class PercentagePromotion : Promotion, IPromotion
+    public class PercentagePromotion : Promotion, IPromotion
     {
         /// <summary>
         /// The percentage from 0-100 % to be applied for the product
@@ -39,7 +39,7 @@ namespace PromotionEngine.Model.Promotions
             int amount = 0;
             cart.CartItems.TryGetValue(Product, out amount);
             if (amount > 0)
-                return ((Product.Unit_price) * (Percentage / 100));
+                return ((amount * Product.Unit_price) * (Percentage / 100));
             else
                 return 0;
         }
