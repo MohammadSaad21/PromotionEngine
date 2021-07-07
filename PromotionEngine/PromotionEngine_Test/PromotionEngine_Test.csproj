@@ -54,6 +54,7 @@
     <Compile Include="Model\Promotions\Promotion_Test.cs" />
     <Compile Include="Model\Promotions\AmountPromotion_Test.cs" />
     <Compile Include="Model\Promotions\CombinedPromotion_Test.cs" />
+    <Compile Include="Model\Promotions\PercentagePromotion_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
