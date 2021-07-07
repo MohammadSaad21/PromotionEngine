@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Cart.cs" />
+    <Compile Include="Model\Engine.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Promotions\AmountPromotion.cs" />
     <Compile Include="Model\Promotions\CombinedPromotion.cs" />
